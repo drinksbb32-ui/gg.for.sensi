@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GG FOR SENSI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <a class="logo">GG<span>FOR SENSI</span></a>
+  <nav>
+    <a href="#home">INÍCIO</a>
+    <a href="#gerador">GERADOR</a>
+    <a href="#acesso">KEY</a>
+    <a href="#adm">ADM</a>
+  </nav>
+  <button id="logout" class="hidden" onclick="logout()">SAIR</button>
+</header>
+
+<section class="hero" id="home">
+  <div>
+    <div class="tag">⚡ GG FOR SENSI SYSTEM</div>
+    <h1>SUA SENSI.<br><span>SEU ESTILO.</span></h1>
+    <p>Personalize sua configuração e descubra<br>
+    novas possibilidades para suas partidas.</p>
+    <a href="#gerador" class="btn">ACESSAR GERADOR ↗</a>
+    <div class="heroInfo">
+      <span>⚡ CONFIGURAÇÃO</span>
+      <span>🔒 ACESSO POR KEY</span>
+      <span>🎮 GAMER</span>
+    </div>
+  </div>
+  <div class="heroGraphic">
+    <div class="ring"></div>
+    <div class="bigGG">GG<br><span>SENSI</span></div>
+    <div class="floating f1">⚡ PERFORMANCE</div>
+    <div class="floating f2">🔥 GG FOR SENSI</div>
+  </div>
+</section>
+
+<section class="section" id="acesso">
+  <div class="title">
+    <small>ÁREA EXCLUSIVA</small>
+    <h2>LIBERAR <span>ACESSO</span></h2>
+    <p>Faça login e utilize uma Key fornecida pelo ADM.</p>
+  </div>
+
+  <div class="card accessCard">
+    <div id="authBox">
+      <div class="switch">
+        <button onclick="setAuth('cadastro')" id="cadTab">CRIAR CONTA</button>
+        <button onclick="setAuth('login')" id="logTab" class="dark">ENTRAR</button>
+      </div>
+      <h3 id="authTitle">Criar conta</h3>
+      <label>Nome</label>
+      <input id="username" placeholder="Seu usuário">
+      <label>Senha</label>
+      <input id="password" type="password" placeholder="Sua senha">
+      <button class="full" id="authButton" onclick="auth()">CRIAR CONTA</button>
+      <p id="authMessage"></p>
+    </div>
+
+    <div id="userBox" class="hidden">
+      <div class="userBadge">👤 <span id="loggedName"></span></div>
+      <h3>Minha Key</h3>
+      <p id="keyStatus">🔒 Acesso bloqueado</p>
+      <div class="keyRow">
+        <input id="keyInput" placeholder="GG-XXXX-XXXX">
+        <button onclick="redeem()">LIBERAR</button>
+      </div>
+      <p id="keyMessage"></p>
+      <div class="timerBox">
+        <small>SEU TEMPO DE ACESSO</small>
+        <h2 id="timer">00:00:00</h2>
+        <div class="progress"><div id="progress"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gerador">
+  <div class="title">
+    <small>GG SENSI ENGINE</small>
+    <h2>GERADOR DE <span>SENSI</span></h2>
+    <p>Configure sua sensibilidade.</p>
+  </div>
+
+  <div class="card generator">
+    <div id="locked">
+      <div class="lock">🔒</div>
+      <h3>GERADOR BLOQUEADO</h3>
+      <p>Você precisa de uma Key ativa para acessar.</p>
+      <a href="#acesso" class="btn">LIBERAR KEY</a>
+    </div>
+
+    <div id="generatorForm" class="hidden">
+      <div class="online">● ACESSO LIBERADO</div>
+
+      <label>Seu celular</label>
+      <select id="phone">
+        <option value="">Selecione seu dispositivo</option>
+        <option>iPhone 15</option>
+        <option>iPhone 14</option>
+        <option>iPhone 13</option>
+        <option>Samsung</option>
+        <option>Xiaomi</option>
+        <option>Motorola</option>
+        <option>Oppo</option>
+      </select>
+
+      <label>Puxada</label>
+      <div class="options">
+        <button class="active" onclick="setPull('rapida',this)">⚡ RÁPIDA</button>
+        <button onclick="setPull('lenta',this)">💧 LENTA</button>
+      </div>
+
+      <label>Modo</label>
+      <div class="options modes">
+        <button class="active" onclick="setMode('Rush',this)">🔥 RUSH</button>
+        <button onclick="setMode('AP',this)">AP</button>
+        <button onclick="setMode('CS',this)">CS</button>
+        <button onclick="setMode('BR',this)">BR</button>
+      </div>
+
+      <button class="full" onclick="generate()">GERAR MINHA SENSI ↗</button>
+      <div id="result" class="hidden result"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="adm">
+  <div class="title">
+    <small>ADMINISTRAÇÃO</small>
+    <h2>PAINEL <span>ADM</span></h2>
+    <p>Crie e gerencie as Keys da GG FOR SENSI.</p>
+  </div>
+
+  <div class="card admin">
+    <div id="admLogin">
+      <div class="lock">♛</div>
+      <h3>LOGIN ADMINISTRATIVO</h3>
+      <label>Usuário ADM</label>
+      <input id="admUsername" placeholder="Usuário">
+      <label>Senha ADM</label>
+      <input id="admPassword" type="password" placeholder="Senha">
+      <button class="full" onclick="adminLogin()">ENTRAR NO ADM</button>
+      <p id="admMessage"></p>
+    </div>
+
+    <div id="admPanel" class="hidden">
+      <div class="online">● ADM AUTENTICADO</div>
+      <h3>CRIAR NOVA KEY</h3>
+      <label>Duração</label>
+      <select id="keyDuration">
+        <option value="1">1 hora</option>
+        <option value="2">2 horas</option>
+        <option value="3">3 horas</option>
+        <option value="6">6 horas</option>
+        <option value="12">12 horas</option>
+        <option value="24">1 dia</option>
+      </select>
+      <button class="full" onclick="createKey()">＋ GERAR KEY</button>
+      <div id="newKey"></div>
+      <h3>KEYS CRIADAS</h3>
+      <div id="keysList"></div>
+      <button class="dark full" onclick="adminLogout()">SAIR DO ADM</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">GG<span>FOR SENSI</span></div>
+  <p>© 2026 GG FOR SENSI • SUA EXPERIÊNCIA GAMER.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

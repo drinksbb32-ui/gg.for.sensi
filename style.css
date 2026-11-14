@@ -1,0 +1,353 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --red:#ff1635;
+  --bg:#050505;
+  --panel:#101010;
+  --border:#292929;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:white;
+  font-family:Inter,Arial;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 10% 15%,#ff16351c,transparent 35%),
+    radial-gradient(circle at 90% 70%,#b0002018,transparent 40%);
+}
+
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 6%;
+  background:#080808ee;
+  border-bottom:1px solid #ff163533;
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(12px);
+}
+
+.logo{
+  font:900 22px Orbitron;
+  color:white;
+  text-decoration:none;
+}
+
+.logo span{color:var(--red)}
+
+nav{display:flex;gap:22px}
+
+nav a{
+  color:#aaa;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+}
+
+nav a:hover{color:var(--red)}
+
+button,.btn{
+  background:linear-gradient(110deg,#ff1635,#a9001c);
+  border:1px solid var(--red);
+  color:white;
+  padding:14px 18px;
+  border-radius:9px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.25s;
+  text-decoration:none;
+  display:inline-block;
+}
+
+button:hover,.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 22px #ff163555;
+  filter:brightness(1.1);
+}
+
+.dark{background:#171717;border-color:#333}
+.active{background:#ff1635;border-color:#ff1635}
+.full{width:100%;margin-top:15px}
+
+.hero{
+  max-width:1200px;
+  min-height:570px;
+  margin:auto;
+  padding:65px 25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:30px;
+}
+
+.tag,.title small{
+  color:#ff6578;
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:900;
+}
+
+.hero h1{
+  font:900 clamp(50px,8vw,90px) Orbitron;
+  line-height:1;
+  letter-spacing:-4px;
+  margin:25px 0;
+}
+
+.hero h1 span{
+  color:var(--red);
+  text-shadow:0 0 30px #ff163555;
+}
+
+.hero p,.title p{
+  color:#999;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.heroInfo{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.heroInfo span{
+  background:#101010;
+  border:1px solid #292929;
+  padding:10px;
+  border-radius:8px;
+  color:#aaa;
+  font-size:10px;
+}
+
+.heroGraphic{
+  min-height:350px;
+  display:grid;
+  place-items:center;
+  position:relative;
+}
+
+.ring{
+  position:absolute;
+  width:300px;
+  height:300px;
+  border:1px solid #ff163555;
+  border-radius:50%;
+  box-shadow:0 0 60px #ff163522,inset 0 0 60px #ff163511;
+  animation:pulse 4s infinite;
+}
+
+.bigGG{
+  text-align:center;
+  font:900 75px Orbitron;
+  transform:rotate(-8deg);
+  text-shadow:0 0 25px #ff163555;
+}
+
+.bigGG span{color:var(--red)}
+
+.floating{
+  position:absolute;
+  background:#111;
+  border:1px solid #ff163555;
+  border-radius:9px;
+  padding:13px;
+  color:#ff6578;
+  font-size:11px;
+  animation:float 4s infinite;
+}
+
+.f1{top:50px;right:10px}
+.f2{bottom:45px;left:10px;animation-delay:1s}
+
+.section{
+  max-width:1000px;
+  margin:auto;
+  padding:65px 25px;
+}
+
+.title{text-align:center;margin-bottom:35px}
+
+.title h2{
+  font:800 clamp(25px,4vw,40px) Orbitron;
+}
+
+.title h2 span{color:var(--red)}
+
+.card{
+  background:linear-gradient(145deg,#151515,#080808);
+  border:1px solid #292929;
+  border-radius:16px;
+  padding:28px;
+  transition:.25s;
+}
+
+.card:hover{border-color:#ff163555}
+
+.accessCard,.generator,.admin{
+  max-width:650px;
+  margin:auto;
+}
+
+.switch,.options{
+  display:flex;
+  gap:10px;
+}
+
+.switch button,.options button{flex:1}
+
+label{
+  display:block;
+  color:#aaa;
+  font-size:12px;
+  margin:16px 0 8px;
+}
+
+input,select{
+  width:100%;
+  background:#070707;
+  color:white;
+  border:1px solid #333;
+  border-radius:9px;
+  padding:14px;
+  outline:none;
+  margin-bottom:10px;
+}
+
+input:focus,select:focus{border-color:var(--red)}
+
+.hidden{display:none!important}
+
+.userBadge{
+  display:inline-block;
+  background:#181818;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #333;
+}
+
+.keyRow{display:flex;gap:10px}
+.keyRow input{min-width:0}
+
+.timerBox{
+  text-align:center;
+  padding:20px;
+  margin-top:20px;
+  background:#080808;
+  border:1px solid #ff163533;
+  border-radius:12px;
+}
+
+.timerBox small{color:#888;letter-spacing:2px}
+
+.timerBox h2{
+  font:800 35px Orbitron;
+  color:var(--red);
+}
+
+.progress{
+  height:8px;
+  background:#222;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+#progress{
+  height:100%;
+  width:0;
+  background:var(--red);
+  transition:.5s;
+}
+
+.lock{
+  font-size:45px;
+  text-align:center;
+  filter:drop-shadow(0 0 15px #ff1638);
+}
+
+.generator #locked{text-align:center;padding:35px 10px}
+.generator #locked h3{font-family:Orbitron;color:var(--red)}
+.generator #locked p{color:#888}
+
+.online{
+  color:#48ff9a;
+  font-size:11px;
+  margin-bottom:20px;
+}
+
+.result{
+  margin-top:20px;
+  padding:20px;
+  border:1px solid #ff163555;
+  border-radius:12px;
+  background:#080808;
+}
+
+.result h3{font-family:Orbitron;color:var(--red)}
+
+.admin h3{font-family:Orbitron}
+
+#keysList .keyItem{
+  padding:15px;
+  border:1px solid #333;
+  border-radius:10px;
+  margin-top:10px;
+  overflow-wrap:anywhere;
+}
+
+#keysList button{margin-top:10px}
+
+footer{
+  text-align:center;
+  border-top:1px solid #222;
+  padding:35px;
+  color:#666;
+  font-size:12px;
+}
+
+footer .logo{margin-bottom:15px}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:.6}
+  50%{transform:scale(1.08);opacity:1}
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+
+@media(max-width:800px){
+  .hero{grid-template-columns:1fr;padding:45px 20px}
+  .heroGraphic{min-height:280px}
+  .ring{width:240px;height:240px}
+  .section{padding:45px 15px}
+}
+
+@media(max-width:550px){
+  header{flex-wrap:wrap;padding:15px}
+  nav{order:3;width:100%;justify-content:space-between}
+  nav a{font-size:10px}
+  .hero h1{letter-spacing:-2px}
+  .heroInfo{gap:6px}
+  .heroInfo span{font-size:9px}
+  .card{padding:20px}
+  .keyRow{flex-direction:column}
+  .switch,.options{flex-wrap:wrap}
+  .options button{min-width:40%}
+}
